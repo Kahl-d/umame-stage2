@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#appContainer{
+    
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#bigTop{
+
+
+    display: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+
+
+
+#middleMain{
+  height: 100%;
+  overflow: hidden;
+  
+}
+
+#homeContainer{
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column-reverse;
+  overflow: hidden;
+  
+}
+
+#recipeContainer{
+  flex-grow: 1;
+  overflow: scroll;
+}
+
+#srchBar{
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 10%;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+#searchBarTextField{
+  /* max-height: 100%; */
+  flex-grow: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#typeForm, #srcBtn{
+  width: 20%;
 }
+
+
+
+  
+
+/* -------------
+----------------Code for laptop screen 
+-------------------------------------------------------------
+--------------------------------------------------------------------*/
+
+
+  @media screen and (min-width: 768px) { /* Adjust the breakpoint as per your needs */
+    .bottomNavButtons {
+      display: flex;
+      gap: 20px; /* Space between the buttons */
+    }
+
+    #smallBottom{
+        display: none;
+    }
+
+    #bigTop{
+
+
+        display: flex;
+    }
+
+    #homeContainer{
+      flex-direction: column;
+    }
+  }
+  
