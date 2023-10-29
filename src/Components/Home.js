@@ -1,10 +1,30 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
+import axios from 'axios';
+import RecipeCard from './RecipeCard';
 
 function Home() {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+        try {
+            const response = await axios.get('http://3.14.254.41:5000/home');
+            setData(response.data.recipes);
+            console.log(response.data)
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    fetchData();
+  }, []);
+
     return (
-        <div>
-            <h1>Welcome to the Home Page!</h1>
-            <p>This is the content of the Home Page.</p>
+        <div id='homeContainer'>
+            {data && data.length > 0 && data.map((recipe) => (
+                <RecipeCard key={recipe.id} recipe={recipe} />
+            ))}
         </div>
     );
 }

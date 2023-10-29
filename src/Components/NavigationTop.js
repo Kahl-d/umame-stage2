@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Typography from '@mui/material/Typography';
-import styles from '../app.css'; // Import the CSS module
-import { Navigation } from '@mui/icons-material';
 import NavigationBottom from './NavigationButtom';
+
 
 const NavigationTop = ()=> {
     const navigate = useNavigate();
