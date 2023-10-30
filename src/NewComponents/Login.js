@@ -8,7 +8,9 @@ import axios from "axios";
 const Login = () => {
 
 
-    
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [currentUser, setCurrentUser] = useState(null);
     
     const handleSubmit = async () => {
 

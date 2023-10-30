@@ -3,6 +3,12 @@ import TextField from '@mui/material/TextField';
 import { FormControl } from "@mui/material";
 import { Button } from '@mui/material';
 import axios from "axios";
+import RecipeCard from "./RecipeCard";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AutorenewIcon from '@mui/icons-material/Autorenew';
+import Item from "./Item";
+
+
 
 const Mixer = () => {
 
@@ -36,13 +42,13 @@ const Mixer = () => {
             
              console.log(response);
             
-            // if (response.data && response.data.recipes && response.data.recipes.length > 0) {
-            //     // setSearchResults(response.data.recipes);
-            //     console.log(response.data);
-            // } else {
-            //     alert("Nothing Found!");
-            //     setSearchResults([]);
-            // }
+            if (response.data && response.data.recipes && response.data.recipes.length > 0) {
+                setSearchResults(response.data.recipes);
+                console.log(response.data);
+            } else {
+                alert("Nothing Found!");
+                setSearchResults([]);
+            }
         } catch (error) {
             console.error("There was an error during the search:", error);
             alert("Error during the search!");
@@ -63,14 +69,24 @@ const Mixer = () => {
                     value={currentIngredient}
                     placeholder="Search for a recipe..." />
             <Button id="addButton" type="submit">
-                Add
+                <AddCircleOutlineIcon aria-label="Add"/>
             </Button>
             </form>
-            <Button id="searchButton" onClick={onSearchClick}>Seacrh</Button>
+            <Button id="mixButton" onClick={onSearchClick}>
+            <AutorenewIcon aria-label="Mix"/>
+            </Button>
                 
             </div>
-            <div id="mixerList"></div>
-            <div id="mixerResults"></div>
+            <div id="mixerList">
+                {mixers.map((mixer, index) => (
+                    <Item key={index} item={mixer} index={index} items={mixers} setItems={setMixers} />
+                ))}
+            </div>
+            <div id="mixerResults">
+            {searchResults.map(recipe => (
+             <RecipeCard key={recipe.id} recipe={recipe} />       
+                ))}
+            </div>
         </div>
     );
 }

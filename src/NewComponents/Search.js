@@ -66,7 +66,23 @@ const Search = () => {
         {searchResults.map(recipe => (
              <RecipeCard key={recipe.id} recipe={recipe} />       
                 ))}
+                {searchResults.map(recipe => (
+             <RecipeCard key={recipe.id} recipe={recipe} />       
+                ))}
+                {searchResults.map(recipe => (
+             <RecipeCard key={recipe.id} recipe={recipe} />       
+                ))}
+                {searchResults.map(recipe => (
+             <RecipeCard key={recipe.id} recipe={recipe} />       
+                ))}
+                {searchResults.map(recipe => (
+             <RecipeCard key={recipe.id} recipe={recipe} />       
+                ))}
+                {searchResults.map(recipe => (
+             <RecipeCard key={recipe.id} recipe={recipe} />       
+                ))}
         </div>
+        
         </div>
     );
     }

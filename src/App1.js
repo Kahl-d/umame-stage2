@@ -17,6 +17,8 @@ import Login from './NewComponents/Login';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import RamenDiningIcon from '@mui/icons-material/RamenDining';
 import './app1.css';
+import AddRecipe from './NewComponents/AddComponents/AddRecipe';
+import QuickRecipe from './NewComponents/AddComponents/QuickRecipe';
 
 /**
  * The main component of the application.
@@ -44,6 +46,8 @@ const App1=()=> {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/add" element={<Add />} />
+                    <Route path="/addRecipe" element={<AddRecipe />} />
+                    <Route path="/quickRecipe" element={<QuickRecipe />} />
                     <Route path="/search" element={<Search />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/mixer" element={<Mixer />} />
