@@ -20,18 +20,40 @@ const Navigation = ()=> {
     };
 
     return (
-        <BottomNavigation id='navBar' value={value} onChange={handleChange}>
-            <BottomNavigationAction
-                className='navbuttons'
-                label="Home"
-                value=""
-                icon={<DinnerDiningIcon fontSize="inherit" />}
-            />
-            <BottomNavigationAction className='navbuttons' label="Search" value="search" icon={<SearchIcon fontSize="inherit"/>} />
-            <BottomNavigationAction className='navbuttons' label="Mixer" value="mixer" icon={<LocalDiningIcon fontSize="inherit"/>} />
-            <BottomNavigationAction id='addBtn' className='navbuttons' label="Add" value="add" icon={<AddIcon fontSize="inherit"/>} />
+        <div id='navBar'>
+            <div className='navbuttons' onClick={()=>{navigate('/')}}>
+                <DinnerDiningIcon fontSize="inherit" />
+                <div className='labels'>Home</div>
+                
+                </div>
+            <div className='navbuttons' onClick={()=>{navigate('/search')}}>
+                <SearchIcon fontSize="inherit"/>
+                <div className='labels'>Search</div>
+
+                </div>
+            <div className='navbuttons' onClick={()=>{navigate('/mixer')}}>
+                <LocalDiningIcon fontSize="inherit"/>
+                <div className='labels'>Mixer</div>
+                
+                </div>
+            <div id='addBtn' className='navbuttons' onClick={()=>{navigate('/add')}}>
+                <AddIcon fontSize="inherit"/>
+                <div className='labels'>Add</div>
+                
+                </div>
+        </div>
+        // <BottomNavigation id='navBar' value={value} onChange={handleChange}>
+        //     <BottomNavigationAction
+        //         className='navbuttons'
+        //         label="Home"
+        //         value=""
+        //         icon={<DinnerDiningIcon fontSize="inherit" />}
+        //     />
+        //     <BottomNavigationAction className='navbuttons' label="Search" value="search" icon={<SearchIcon fontSize="inherit"/>} />
+        //     <BottomNavigationAction className='navbuttons' label="Mixer" value="mixer" icon={<LocalDiningIcon fontSize="inherit"/>} />
+        //     <BottomNavigationAction id='addBtn' className='navbuttons' label="Add" value="add" icon={<AddIcon fontSize="inherit"/>} />
             
-        </BottomNavigation>
+        // </BottomNavigation>
     );
 }
 
