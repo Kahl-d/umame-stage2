@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import { FormControl, Card } from "@mui/material";
 import { Button } from '@mui/material';
 import axios from "axios";
-import RecipeCard from "./RecipeCard";
+// import RecipeCard from "./RecipeCard";
 
 
 const Search = () => {
@@ -62,7 +62,7 @@ const Search = () => {
         onClick={handleSubmit}
         >Search</Button>
         </div>
-        <div id="searchResults">
+        {/* <div id="searchResults">
         {searchResults.map(recipe => (
              <RecipeCard key={recipe.id} recipe={recipe} />       
                 ))}
@@ -81,7 +81,7 @@ const Search = () => {
                 {searchResults.map(recipe => (
              <RecipeCard key={recipe.id} recipe={recipe} />       
                 ))}
-        </div>
+        </div> */}
         
         </div>
     );

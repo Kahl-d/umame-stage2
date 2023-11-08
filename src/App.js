@@ -1,58 +1,68 @@
+/**
+ * This file contains the main component of the application.
+ * @module App
+ */
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import './app.css';
+import BottomsNavigation from './NewComponents/BottomsNavigation';
+import Home from './NewComponents/Home';
+import Add from './NewComponents/Add';
+import Plus from './NewComponents/Plus'; // for adding recipes
+import Search from './NewComponents/Search';
+import Mixer from './NewComponents/Mixer';
+import Login from './NewComponents/Login';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import RamenDiningIcon from '@mui/icons-material/RamenDining';
+import './app1.css';
+import AddRecipe from './NewComponents/AddComponents/AddRecipe';
+import QuickRecipe from './NewComponents/AddComponents/QuickRecipe';
 
-import Home from './Components/Home';
-import Login from './Components/Login'; 
-import Plus from './Components/Plus';  
-import Search from './Components/Search';  
-import LandingPage from './Components/LandingPage';
-import NavigationButtom from './Components/NavigationButtom';
-import NavigationTop from './Components/NavigationTop';
-import UHome from './Components/UHome';
+/**
+ * The main component of the application.
+ * @returns {JSX.Element} The JSX element that represents the main component.
+ */
+const App=()=> {   
 
-const  App=()=> {
     return (
-        
-        <Router>
-            <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/app/*" element={<MainContent />} />
-                
-                
-                {/* Add other routes if needed */}
+        <div id='appContainer'>
             
-            </Routes>
-        </Router>
-        
-    );
-}
+            <Router>
+                <div id='topContainer'>
+                <div className='topSections' id='logo'><RamenDiningIcon/></div>
+                <div className='topSections' id='title'>
+                    <h1>UMAMe</h1>
+                    <span>you might add Me</span>
+                </div>
+                <div className='topSections' id='login'><AccountCircleIcon/></div>
+                </div>
+                <div id='NavContainer'>
+                    <BottomsNavigation/>
+                </div>
 
-function MainContent() {
-    return (
-        <div id="appContainer">
-                <NavigationTop/>
-                <div id='middleMain'>
+                <div id='mainContentContainer'>
                 <Routes>
-                
-                    {/* <Route path="/login" element={<Login />} /> */}
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/plus" element={<Plus />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/add" element={<Add />} />
+                    <Route path="/addRecipe" element={<AddRecipe />} />
+                    <Route path="/quickRecipe" element={<QuickRecipe />} />
                     <Route path="/search" element={<Search />} />
-                    <Route path="/infinity" element={<UHome />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/mixer" element={<Mixer />} />
                     
                 </Routes>
                 </div>
-                <div id="smallBottom">
-                    <NavigationButtom />
-                </div>
+
+            </Router>
         </div>
-            
-        
+
     );
 }
 
-
-
 export default App;
+
+
+

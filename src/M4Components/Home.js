@@ -1,6 +1,6 @@
 import {React, useState, useEffect} from 'react';
 import axios from 'axios';
-import RecipeCard from './RecipeCard';
+// import RecipeCard from './RecipeCard';
 
 function Home() {
 
@@ -22,9 +22,11 @@ function Home() {
 
     return (
         <div id='homeContainer'>
-            {data && data.length > 0 && data.map((recipe) => (
+            {/* {data && data.length > 0 && data.map((recipe) => (
                 <RecipeCard key={recipe.id} recipe={recipe} />
-            ))}
+            ))} */}
+
+            home
         </div>
     );
 }
