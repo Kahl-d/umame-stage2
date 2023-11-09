@@ -5,6 +5,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import CommentIcon from '@mui/icons-material/Comment';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import LinearProgress from '@mui/material/LinearProgress';
+import OutdoorGrillIcon from '@mui/icons-material/OutdoorGrill';
+import CookieIcon from '@mui/icons-material/Cookie';
 
 const RecipeCard = (props) => {
     const { recipe } = props;
@@ -23,20 +26,40 @@ const RecipeCard = (props) => {
         setExpanded(!expanded);
     };
 
+    const renderDifficultyLevel = () => {
+        if (difficulty) {
+            return (
+                <div className='difficultyLevel'>
+                    <CookieIcon/>
+                    <div className="diffBar">
+                    <LinearProgress
+                        variant="determinate"
+                        value={difficulty * 20} // Assuming difficulty is an integer from 0 to 5
+                    />
+                    </div>
+                        
+                        <OutdoorGrillIcon/>
+                    
+                </div>
+            );
+        }
+        return null;
+    };
+
     return (
         <div className='recipeCard'>
+            <div className='recipeContent'>
+                <div className='recipeTitle'>{name}</div>
+                <div className='recipeOwner'>
+                    <div className='ownerTag'>@</div>
+                    <div className='ownerName'>{recipeOwnerName}</div>
+                </div>
+            </div>
             <div className='recipeImage'>
                 <img src={image} alt={name} />
             </div>
-            <div className="recipeCardBottom">
-                <div className='recipeTitle'>{name}</div>
-                <div className='recipeOwnerName'>{recipeOwnerName}</div>
-                <div className="difficultyLevel">
-                    {difficulty && (
-                        <div className='difficultyLevel'>{difficulty}</div>
-                    )}
-                </div>
-                <div id="cardBtns">
+            {renderDifficultyLevel()}
+            <div id="cardBtns">
                 <IconButton onClick={handleLike}>
                     <FavoriteIcon style={{ color: 'red' }} />
                     {likes?.length || 0}
@@ -45,21 +68,20 @@ const RecipeCard = (props) => {
                     <CommentIcon style={{ color: 'gray' }} />
                     {comments?.length || 0}
                 </IconButton>
-                </div>
             </div>
             {expanded ? (
                 <div className='recipeIngredients'>
                     <h3>Ingredients</h3>
-                    <ul>
+                    <div>
                         {ingredients.map((ingredient, index) => (
-                            <li key={index}>{ingredient.name}</li>
+                            <p key={index}>{ingredient.name}</p>
                         ))}
-                    </ul>
+                    </div>
                 </div>
             ) : null}
-            <IconButton onClick={toggleExpand}>
+            <div className='expandBtn' onClick={toggleExpand}>
                 {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </IconButton>
+            </div>
         </div>
     );
 };
