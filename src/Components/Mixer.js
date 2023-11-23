@@ -1,12 +1,10 @@
-import {React, useState, useEffect} from "react";
+import {React, useState} from "react";
 import TextField from '@mui/material/TextField';
-import { FormControl } from "@mui/material";
 import { Button } from '@mui/material';
 import axios from "axios";
-import RecipeCard from "./RecipeCard";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
-import Item from "./Item";
+import RecipeCard from "./RecipeCard";
 
 
 
@@ -78,9 +76,9 @@ const Mixer = () => {
                 
             </div>
             <div id="mixerList">
-                {mixers.map((mixer, index) => (
+                {/* {mixers.map((mixer, index) => (
                     <Item key={index} item={mixer} index={index} items={mixers} setItems={setMixers} />
-                ))}
+                ))} */}
             </div>
             <div id="mixerResults">
             {searchResults.map(recipe => (

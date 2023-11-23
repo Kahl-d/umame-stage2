@@ -11,7 +11,7 @@ import './nav.css';
 
 const Navigation = ()=> {
     const navigate = useNavigate();
-    const [value, setValue] = React.useState('home');
+    const [value, setValue] = React.useState('main');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -21,7 +21,7 @@ const Navigation = ()=> {
 
     return (
         <div id='navBar'>
-            <div className='navbuttons' onClick={()=>{navigate('/')}}>
+            <div className='navbuttons' onClick={()=>{navigate('/main')}}>
                 <DinnerDiningIcon fontSize="inherit" />
                 <div className='labels'>Home</div>
                 
@@ -42,18 +42,7 @@ const Navigation = ()=> {
                 
                 </div>
         </div>
-        // <BottomNavigation id='navBar' value={value} onChange={handleChange}>
-        //     <BottomNavigationAction
-        //         className='navbuttons'
-        //         label="Home"
-        //         value=""
-        //         icon={<DinnerDiningIcon fontSize="inherit" />}
-        //     />
-        //     <BottomNavigationAction className='navbuttons' label="Search" value="search" icon={<SearchIcon fontSize="inherit"/>} />
-        //     <BottomNavigationAction className='navbuttons' label="Mixer" value="mixer" icon={<LocalDiningIcon fontSize="inherit"/>} />
-        //     <BottomNavigationAction id='addBtn' className='navbuttons' label="Add" value="add" icon={<AddIcon fontSize="inherit"/>} />
-            
-        // </BottomNavigation>
+
     );
 }
 

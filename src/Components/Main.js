@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import RecipeCard from './RecipeCard';
-import '../application.css';
+import './main.css';
 
-function Home() {
+
+function Main() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -21,14 +22,19 @@ function Home() {
     }, []);
 
     return (
-        <div id='homeContainer'>
+        <div id='mainContainer'>
+            
+            <div id='mainRecipes'>
             {data && data.length > 0 && data.map((recipe) => (
                 <RecipeCard key={recipe.id} recipe={recipe} />
             ))}
+            </div>
+            {/* <div id='mainColorBox'></div> */}
+            
 
         
         </div>
     );
 }
 
-export default Home;
+export default Main;
